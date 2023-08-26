@@ -7,12 +7,8 @@
     <body>
         <h1>チーム開発会へようこそ！</h1>
         <h2>投稿作成</h2>
-        <form action="/posts" method="POST" enctype="multipart/form-data">
+        <form action="/posts" method="POST">
             @csrf
-            //ユーザーのidを送ってもらう
-            <input type="hidden" name="post[user_id]" value="{{ Auth::user()->id }}">
-            
-            
             <div>
                 <h2>タイトル</h2>
                 <input type="text" name="post[title]" placeholder="タイトル" value="{{ old('post.title') }}"/>
@@ -23,14 +19,6 @@
                 <textarea name="post[body]" placeholder="今日も1日お疲れさまでした。">{{ old('post.body') }}</textarea>
                 <p class="body__error" style="color:red">{{ $errors->first('post.body') }}</p>
             </div>
-            <!-- ここから追加 -->
-            <div class="image">
-                <input type="file" name="image">
-            </div>
-            <!-- ここまで追加 -->
-            
-            <input type="date" id="start" name="post[date]"/>
-            
             <fieldset>
             <legend>だれ？</legend>
             <div>

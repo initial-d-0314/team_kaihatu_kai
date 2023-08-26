@@ -13,7 +13,7 @@ class PostRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -26,7 +26,7 @@ class PostRequest extends FormRequest
         return [
             'title' => 'required|string|max:255',
             'body' => 'required|string|max:10000',
-            'image_url' =>'nullable|string'
+            'image_url' =>'nullable|string',
             'date' => 'required|date|after_or_equal:' . today()->format('Y-m-d'),
         ];
     }
