@@ -21,6 +21,7 @@ return new class extends Migration
             $table->date('date');
             $table->timestamps();
             $table->foreignId('post_id')->constrained();
+            $table->foreignId('user_id')->constrained();
         });
     }
 
@@ -33,6 +34,7 @@ return new class extends Migration
     {
         Schema::table('receivers', function (Blueprint $table) {
         $table->dropForeign('receivers_post_id_foreign');
+        $table->dropForeign('receivers_user_id_foreign');
         });
         Schema::dropIfExists('receivers');
     }
