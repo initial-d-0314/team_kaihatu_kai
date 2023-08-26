@@ -18,7 +18,7 @@ class PostSeeder extends Seeder
     {
         DB::table('posts')->insert([
             'title' => 'チーム開発会って？',
-            'body' => 'チームで協力して一つの成果物を作るイベントです！メンバー全員で助け合いましょう！',
+            'body' => '2番のユーザーに送るよ',
             'date' => '2000-01-01',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
@@ -26,7 +26,7 @@ class PostSeeder extends Seeder
         ]);
         DB::table('posts')->insert([
             'title' => 'ポポリポポ',
-            'body' => 'ばしゃときれぼし',
+            'body' => '1番に送るよ',
             'date' => '2050-01-01',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
