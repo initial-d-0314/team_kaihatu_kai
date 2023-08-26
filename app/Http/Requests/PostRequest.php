@@ -21,10 +21,20 @@ class PostRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
-    public function rules()
+        public function rules()
     {
         return [
-            //
+            'title' => 'required|string|max:255',
+            'body' => 'required|string|max:10000',
+            'image_url' =>'nullable|string'
+            'date' => 'required|date|after_or_equal:' . today()->format('Y-m-d'),
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'full_date.after_or_equal' => '未来の日付を入力してください。',
         ];
     }
 }
