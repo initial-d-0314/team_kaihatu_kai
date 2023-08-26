@@ -13,13 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('receivers', function (Blueprint $table) {
             $table->id();
             $table->string('title', 250);
             $table->string('body', 2000);
             $table->string('image_url', 200)->nullable();
             $table->date('date');
             $table->timestamps();
+            $table->foreignId('post_id')->constrained();
             $table->foreignId('user_id')->constrained();
         });
     }
@@ -31,9 +32,10 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('posts', function (Blueprint $table) {
-        $table->dropForeign('posts_user_id_foreign');
+        Schema::table('receivers', function (Blueprint $table) {
+        $table->dropForeign('receivers_user_id_foreign');
+        $table->dropForeign('receivers_post_id_foreign');
         });
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('receivers');
     }
 };
