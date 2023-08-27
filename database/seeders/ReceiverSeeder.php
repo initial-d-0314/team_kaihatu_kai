@@ -18,7 +18,7 @@ class ReceiverSeeder extends Seeder
     public function run()
     {
         DB::table('receivers')->insert([
-            'title' => 'チーム開発会って？',
+            'title' => 'ありがとうチーム開発会',
             'body' => '2番のユーザーに送るよ',
             'date' => '2000-01-01',
             'created_at' => new DateTime(),
@@ -27,7 +27,7 @@ class ReceiverSeeder extends Seeder
             'user_id' => 1
         ]);
         DB::table('receivers')->insert([
-            'title' => 'ポポリポポ',
+            'title' => 'おつかれさまチーム開発会',
             'body' => '1番に送るよ',
             'date' => '2010-01-01',
             'created_at' => new DateTime(),
@@ -36,7 +36,7 @@ class ReceiverSeeder extends Seeder
             'user_id' => 2
         ]);
         DB::table('receivers')->insert([
-            'title' => 'ぴぎょはむ',
+            'title' => 'まだ見えない投稿',
             'body' => '1から2番に送るよ',
             'date' => '2050-01-01',
             'created_at' => new DateTime(),
@@ -45,7 +45,7 @@ class ReceiverSeeder extends Seeder
             'user_id' => 1
         ]);
         DB::table('receivers')->insert([
-            'title' => 'グルグルグルンガスト',
+            'title' => '未来に送信される投稿',
             'body' => '2から1番に送るよ',
             'date' => '2050-01-01',
             'created_at' => new DateTime(),
@@ -53,5 +53,32 @@ class ReceiverSeeder extends Seeder
             'post_id' => 4,
             'user_id' => 2
         ]);
+        DB::table('posts')->insert([
+            'title' => 'フロントエンドの熱闘',
+            'body' => '2から1番に送るよ',
+            'date' => '2020-01-01',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            'user_id' => 1
+        ]);
+        DB::table('posts')->insert([
+            'title' => 'バックエンドの奮闘',
+            'body' => '2から1番に送るよ',
+            'date' => '2020-01-01',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            'user_id' => 2
+        ]);
+        DB::table('posts')->insert([
+            'title' => '知恵熱の出る経験',
+            'body' => '3から4番に送るよ',
+            'date' => '2015-01-01',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            'user_id' => 3
+            ]);
+        
+        
+        
     }
 }

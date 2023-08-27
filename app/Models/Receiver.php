@@ -20,8 +20,10 @@ class Receiver extends Model
     
     public function getPaginateByLimit(int $limit_count = 10)
     {
+        //自分のidで絞りこみ
         // updated_atで降順に並べたあと、limitで件数制限をかける
-        return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
+        $user_id = \Auth::user()->id;
+        return $this::where("user_id", $user_id)->orderBy('updated_at', 'DESC')->paginate($limit_count);
     }
     
     public function post(){
