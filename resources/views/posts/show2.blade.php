@@ -8,6 +8,14 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
+        @php
+            $today = new DateTime("now");
+            $receivedate = date_create_from_format("Y-m-d",$receiver->date);
+            $createdate = date_create_from_format("Y-m-d H:i:s",$receiver->created_at);
+        @endphp
+        @if($today < $receivedate)
+            <p>まだ見る訳にはいかない！<\p>
+        @else
         <h1>詳細画面</h1>
         <div>
             <p>タイトル：{{ $receiver->title }}</p>
@@ -21,6 +29,7 @@
             </div>
             @endif
         </div>
+        @endif
         <div>
             <a href="/">戻る</a>
         </div>
