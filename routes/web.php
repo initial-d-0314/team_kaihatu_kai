@@ -36,7 +36,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/', [PostController::class, 'index'])->name('index');
     Route::get('/2', [PostController::class, 'index2'])->name('index2');
     Route::post('/posts',  [PostController::class, 'store']);
-    Route::get('/posts/create',  [PostController::class, 'create']);
+    Route::get('/posts/create',  [PostController::class, 'create'])->name('create');
     Route::get('/posts/{post}',  [PostController::class, 'show']);
     Route::get('/posts2/{receiver}',  [PostController::class, 'show2']);
     Route::put('/posts/{post}',  [PostController::class, 'update']);
