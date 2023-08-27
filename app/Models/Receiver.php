@@ -15,6 +15,7 @@ class Receiver extends Model
         'image_url',
         'date',
         'post_id',
+        'user_id',
     ];
     
     public function getPaginateByLimit(int $limit_count = 10)
@@ -25,5 +26,8 @@ class Receiver extends Model
     
     public function post(){
         return $this->belongsTo(Post::class);
+    }
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 }
