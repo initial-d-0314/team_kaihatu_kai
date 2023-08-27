@@ -28,8 +28,8 @@ class ReceiverSeeder extends Seeder
             'user_id' => 1
         ]);
         DB::table('receivers')->insert([
-            'title' => 'おつかれさまチーム開発会',
-            'body' => '1番に送るよ',
+            'title' => '長い本文のテスト(100文字)',
+            'body' => 'あいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえお',
             'date' => '2010-01-01',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
