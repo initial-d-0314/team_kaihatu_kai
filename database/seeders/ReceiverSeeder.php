@@ -53,7 +53,7 @@ class ReceiverSeeder extends Seeder
             'post_id' => 4,
             'user_id' => 2
         ]);
-        DB::table('posts')->insert([
+        DB::table('receivers')->insert([
             'title' => 'フロントエンドの熱闘',
             'body' => '2から1番に送るよ',
             'date' => '2020-01-01',
@@ -61,7 +61,7 @@ class ReceiverSeeder extends Seeder
             'updated_at' => new DateTime(),
             'user_id' => 1
         ]);
-        DB::table('posts')->insert([
+        DB::table('receivers')->insert([
             'title' => 'バックエンドの奮闘',
             'body' => '2から1番に送るよ',
             'date' => '2020-01-01',
@@ -69,7 +69,7 @@ class ReceiverSeeder extends Seeder
             'updated_at' => new DateTime(),
             'user_id' => 2
         ]);
-        DB::table('posts')->insert([
+        DB::table('receivers')->insert([
             'title' => '知恵熱の出る経験',
             'body' => '3から4番に送るよ',
             'date' => '2015-01-01',
