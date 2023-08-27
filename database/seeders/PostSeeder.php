@@ -18,18 +18,38 @@ class PostSeeder extends Seeder
     {
         DB::table('posts')->insert([
             'title' => 'チーム開発会って？',
-            'body' => '2番のユーザーに送るよ',
+            'body' => '1番が2番のユーザーに送るよ',
             'date' => '2000-01-01',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
+            'auth_send_user' => 1,
             'user_id' => 2
         ]);
         DB::table('posts')->insert([
             'title' => 'ポポリポポ',
-            'body' => '1番に送るよ',
+            'body' => '2番が1番に送るよ,これは見れるよ！',
+            'date' => '2010-01-01',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            'auth_send_user' => 2,
+            'user_id' => 1
+        ]);
+        DB::table('posts')->insert([
+            'title' => 'ぴぎょはむ',
+            'body' => '1から2番に送るよ,',
             'date' => '2050-01-01',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
+            'auth_send_user' => 1,
+            'user_id' => 2
+        ]);
+        DB::table('posts')->insert([
+            'title' => 'グルグルグルンガスト',
+            'body' => '2から1番に送るよ',
+            'date' => '2050-01-01',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            'auth_send_user' => 2,
             'user_id' => 1
         ]);
         

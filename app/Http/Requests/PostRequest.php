@@ -27,7 +27,7 @@ class PostRequest extends FormRequest
             'post.title' => 'required|string|max:255',
             'post.body' => 'required|string|max:10000',
             'post.image_url' =>'nullable|string',
-            'post.date' => 'date|after:today',
+            'post.date' => 'date|after:yesterday',
             'post.user_id' => 'required',
         ];
     }

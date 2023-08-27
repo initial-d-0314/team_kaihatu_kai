@@ -11,9 +11,10 @@ use Cloudinary;
 
 class PostController extends Controller
 {
-    public function index(Post $post)
+    public function index(Post $post, User $user)
     {
-        return view('posts/index')->with(['posts' => $post->getPaginateByLimit()]);
+        $user = \Auth::user();
+        return view('posts/index')->with(['posts' => $post->getPaginateByLimit(), 'user' => $user]);
     }
     //受け取った側の一覧表示（テスト）
     public function index2(Receiver $receiver)
@@ -47,6 +48,7 @@ class PostController extends Controller
             $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
             $input += ['image_url' => $image_url];  //追加
         }
+        $input += ['auth_send_user' => \Auth::user()->id];  //追加
         $post->fill($input)->save();
         
         $input += ['post_id' => $post->id];  //追加

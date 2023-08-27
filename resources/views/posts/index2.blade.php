@@ -12,7 +12,7 @@
         <a href='/posts/create'>新規投稿</a>
         <div>
             @php
-            $today = new DateTime("today");
+            $today = new DateTime("now");
             @endphp
             
             @foreach ($receivers as $receiver)
@@ -21,7 +21,7 @@
             $createdate = date_create_from_format("Y-m-d H:i:s",$receiver->created_at);
             
             @endphp
-            @if($today > $receivedate)
+            @if($today > $receivedate|| $today == $receivedate)
                 <div style='border:solid 1px; margin-bottom: 10px;'>
                     <p>
                         送信元：{{ $receiver->user->name}}

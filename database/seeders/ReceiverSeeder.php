@@ -29,10 +29,28 @@ class ReceiverSeeder extends Seeder
         DB::table('receivers')->insert([
             'title' => 'ポポリポポ',
             'body' => '1番に送るよ',
-            'date' => '2050-01-01',
+            'date' => '2010-01-01',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             'post_id' => 2,
+            'user_id' => 2
+        ]);
+        DB::table('receivers')->insert([
+            'title' => 'ぴぎょはむ',
+            'body' => '1から2番に送るよ',
+            'date' => '2050-01-01',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            'post_id' => 3,
+            'user_id' => 1
+        ]);
+        DB::table('receivers')->insert([
+            'title' => 'グルグルグルンガスト',
+            'body' => '2から1番に送るよ',
+            'date' => '2050-01-01',
+            'created_at' => new DateTime(),
+            'updated_at' => new DateTime(),
+            'post_id' => 4,
             'user_id' => 2
         ]);
     }
