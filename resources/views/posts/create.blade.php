@@ -9,10 +9,6 @@
         <h2>投稿作成</h2>
         <form action="/posts" method="POST" enctype="multipart/form-data">
             @csrf
-            //ユーザーのidを送ってもらう
-            <input type="hidden" name="post[user_id]" value="{{ Auth::user()->id }}">
-            
-            
             <div>
                 <h2>タイトル</h2>
                 <input type="text" name="post[title]" placeholder="タイトル" value="{{ old('post.title') }}"/>
@@ -28,18 +24,20 @@
                 <input type="file" name="image">
             </div>
             <!-- ここまで追加 -->
-            
-            <input type="date" id="start" name="post[date]"/>
+            <input type="date" id="start" name="post[date]"value="{{old('post.date')}}"/>
+            <p class="date__error" style="color:red">{{ $errors->first('post.date') }}</p>
             
             <fieldset>
             <legend>だれ？</legend>
             <div>
                 @foreach($users as $user)
-                    <input type="radio" id="personselect{{$user->id}}" name="post[user_id]" value="{{$user->id}}" /><label for="personselect{{$user->id}}"">{{$user->name}}</label>
+                    <input type="radio" id="personselect{{$user->id}}" name="post[user_id]" value="{{$user->id}}" {{ old('post.user_id') == $user->id ? 'checked' : '' }}/>
+                    <label for="personselect{{$user->id}}">{{$user->name}}</label>
                 @endforeach
                 </div>
             </div>
             </fieldset>
+            <p class="user_id__error" style="color:red">{{ $errors->first('post.user_id') }}</p>
             <input type="submit" value="保存"/>
         </form>
         <div><a href="/">戻る</a></div>

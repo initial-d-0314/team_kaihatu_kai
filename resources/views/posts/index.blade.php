@@ -1,3 +1,4 @@
+
   <x-app-layout>
     <div class="w-full h-screen bg-scroll ... ">
         <!--<h1>チーム開発会へようこそ！</h1>-->
@@ -11,14 +12,10 @@
                             <h2 class="font-bold text-xl text-black  text-center">タイトル:{{ $post->title }} </h2>
                         </a>
                     @endforeach
-                </div>
+
                 </div>
             <div>
                 {{ $posts->links() }}
             </div>
     </div>
 </x-app-layout>
-
-
-        <!--<h2>投稿一覧画面</h2>-->
-        <!--<a href='/posts/create'>新規投稿</a>-->
