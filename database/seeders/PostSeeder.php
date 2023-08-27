@@ -26,8 +26,8 @@ class PostSeeder extends Seeder
             'user_id' => 2
         ]);
         DB::table('posts')->insert([
-            'title' => 'おつかれさまチーム開発会',
-            'body' => '2番が1番に送るよ,これは見れるよ！',
+            'title' => '長い本文のテスト(100文字)',
+            'body' => 'あいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえお',
             'date' => '2010-01-01',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
