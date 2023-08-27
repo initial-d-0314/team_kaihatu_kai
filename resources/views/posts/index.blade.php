@@ -1,5 +1,4 @@
-
-  <x-app-layout>
+<x-app-layout>
     <div class="w-full h-screen bg-scroll ... ">
         <!--<h1>チーム開発会へようこそ！</h1>-->
         <div class="w-full h-screen"style="background-image: url('/img/background.jpg');background-repeat:no-repeat;background-size:cover">
@@ -7,12 +6,26 @@
             <div class="w-3/4 mx-auto mt-8 bg-white p-5 relative top-[25%] ">
                 
                  <div class="grid grid-cols-3  justify-items-center mt-10  "> 
+                 @php
+                 $today = new DateTime("now");
+                 @endphp
                     @foreach ($posts as $post)
+                    @php
+                    $senddate = date_create_from_format("Y-m-d",$post->date);
+                    $createdate = date_create_from_format("Y-m-d H:i:s",$post->created_at);
+                    $interval = date_diff($today,$senddate);
+                    $showdate = $interval->format("%a");
+                    @endphp
                         <a href="/posts/{{ $post->id }}" type="button" class="bg-gradient-to-r from-pink-500 to-yellow-500 shadow-lg rounded px-2 py-1 my-4 hover:from-green-400 hover:to-blue-500 hover:shadow-sm hover:translate-y-0.5 transform transition    ">
                             <h2 class="font-bold text-xl text-black  text-center">タイトル:{{ $post->title }} </h2>
                         </a>
+                        送信先：{{ $post->user->name}}
+                        作成日：{{ $createdate->format('Y年m月d日')}}
+                        送信予定日：{{ $senddate->format('Y年m月d日')}}
+                        @if($today < $senddate)
+                        あと{{$showdate}}日で送信される
+                        @endif
                     @endforeach
-
                 </div>
             <div>
                 {{ $posts->links() }}

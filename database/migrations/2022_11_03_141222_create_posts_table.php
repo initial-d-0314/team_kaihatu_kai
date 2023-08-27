@@ -20,6 +20,9 @@ return new class extends Migration
             $table->string('image_url', 200)->nullable();
             $table->date('date');
             $table->timestamps();
+            //送った人物（自分）
+            $table->bigInteger('auth_send_user');
+            //以下は送り先
             $table->foreignId('user_id')->constrained();
         });
     }

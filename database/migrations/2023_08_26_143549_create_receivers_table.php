@@ -21,6 +21,7 @@ return new class extends Migration
             $table->date('date');
             $table->timestamps();
             $table->foreignId('post_id')->constrained();
+            //送ってきた相手のid
             $table->foreignId('user_id')->constrained();
         });
     }
