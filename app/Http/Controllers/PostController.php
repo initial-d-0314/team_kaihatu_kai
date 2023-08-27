@@ -15,10 +15,21 @@ class PostController extends Controller
     {
         return view('posts/index')->with(['posts' => $post->getPaginateByLimit()]);
     }
+    //受け取った側の一覧表示（テスト）
+    public function index2(Receiver $receiver)
+    {
+        return view('posts/index2')->with(['receivers' => $receiver->getPaginateByLimit()]);
+    }
 
     public function show(Post $post)
     {
         return view('posts/show')->with(['post' => $post]);
+    }
+    
+    //受け取る側のテスト表示
+    public function show2(Receiver $receiver)
+    {
+        return view('posts/show2')->with(['receiver' => $receiver]);
     }
     
     //要変更である//検証用に変えている
@@ -28,7 +39,7 @@ class PostController extends Controller
     }
     
     //変更済み、リダイレクト先が要編集
-    public function store(Post $post,Receiver $receiver, Request $request)
+    public function store(Post $post,Receiver $receiver, PostRequest $request)
     {
         $input = $request['post'];
         if($request->file('image')){ //画像ファイルが送られた時だけ処理が実行される
@@ -39,6 +50,7 @@ class PostController extends Controller
         $post->fill($input)->save();
         
         $input += ['post_id' => $post->id];  //追加
+        $input['user_id'] = \Auth::user()->id ;
         $receiver->fill($input)->save();
         return redirect('/posts/' . $post->id);
     }

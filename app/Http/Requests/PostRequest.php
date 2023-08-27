@@ -24,17 +24,11 @@ class PostRequest extends FormRequest
         public function rules()
     {
         return [
-            'title' => 'required|string|max:255',
-            'body' => 'required|string|max:10000',
-            'image_url' =>'nullable|string',
-            'date' => 'required|date|after_or_equal:' . today()->format('Y-m-d'),
-        ];
-    }
-
-    public function messages()
-    {
-        return [
-            'full_date.after_or_equal' => '未来の日付を入力してください。',
+            'post.title' => 'required|string|max:255',
+            'post.body' => 'required|string|max:10000',
+            'post.image_url' =>'nullable|string',
+            'post.date' => 'date|after:today',
+            'post.user_id' => 'required',
         ];
     }
 }
