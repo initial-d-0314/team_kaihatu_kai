@@ -12,7 +12,12 @@
         <div>
             <p>タイトル：{{ $post->title }}</p>
             <p>本文：{{ $post->body }}</p>
-            <p>カテゴリー：<a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a></p>
+            <p>宛先：{{ $post->user->name }}</p>
+            <p>届く日付：{{$post->date}}</p>
+            
+            <div>
+            <img src="{{ $post->image_url }}" alt="画像が読み込めません。"/>
+            </div>
         </div>
         <div>
             <p class="edit">[<a href="/posts/{{ $post->id }}/edit">編集</a>]</p>

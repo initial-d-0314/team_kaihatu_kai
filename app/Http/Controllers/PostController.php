@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
 use App\Models\Post;
 use App\Models\Receiver;
+use App\Models\User;
 use Cloudinary;
 
 class PostController extends Controller
@@ -20,14 +21,14 @@ class PostController extends Controller
         return view('posts/show')->with(['post' => $post]);
     }
     
-    //要変更である
-    public function create(Category $category)
+    //要変更である//検証用に変えている
+    public function create(User $user)
     {
-        return view('posts/create')->with(['categories' => $category->get()]);
+        return view('posts/create')->with(['users' => $user->get()]);
     }
     
     //変更済み、リダイレクト先が要編集
-    public function store(Post $post,Receiver $receiver, PostRequest $request)
+    public function store(Post $post,Receiver $receiver, Request $request)
     {
         $input = $request['post'];
         if($request->file('image')){ //画像ファイルが送られた時だけ処理が実行される
@@ -36,6 +37,8 @@ class PostController extends Controller
             $input += ['image_url' => $image_url];  //追加
         }
         $post->fill($input)->save();
+        
+        $input += ['post_id' => $post->id];  //追加
         $receiver->fill($input)->save();
         return redirect('/posts/' . $post->id);
     }
