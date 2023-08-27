@@ -59,6 +59,7 @@ class ReceiverSeeder extends Seeder
             'date' => '2020-01-01',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
+            'post_id' => 5,
             'user_id' => 1
         ]);
         DB::table('receivers')->insert([
@@ -67,6 +68,7 @@ class ReceiverSeeder extends Seeder
             'date' => '2020-01-01',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
+            'post_id' => 5,
             'user_id' => 2
         ]);
         DB::table('receivers')->insert([
@@ -75,10 +77,9 @@ class ReceiverSeeder extends Seeder
             'date' => '2015-01-01',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
+            'post_id' => 5,
             'user_id' => 3
             ]);
-        
-        
         
     }
 }
