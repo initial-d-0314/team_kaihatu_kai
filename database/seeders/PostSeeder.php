@@ -36,20 +36,20 @@ class PostSeeder extends Seeder
         ]);
         DB::table('posts')->insert([
             'title' => 'まだ見えない投稿',
-            'body' => '1から2番に送るよ,',
+            'body' => '1から3番に送るよ,',
             'date' => '2050-01-01',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
             'auth_send_user' => 1,
-            'user_id' => 2
+            'user_id' => 3
         ]);
         DB::table('posts')->insert([
-            'title' => '未来に送信される投稿',
-            'body' => '2から1番に送るよ',
+            'title' => '未来への投稿',
+            'body' => '3から1番に送るよ',
             'date' => '2050-01-01',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
-            'auth_send_user' => 2,
+            'auth_send_user' => 3,
             'user_id' => 1
         ]);
         DB::table('posts')->insert([
@@ -63,12 +63,12 @@ class PostSeeder extends Seeder
         ]);
         DB::table('posts')->insert([
             'title' => 'バックエンドの奮闘',
-            'body' => '2から1番に送るよ',
+            'body' => '3から2番に送るよ',
             'date' => '2020-01-01',
             'created_at' => new DateTime(),
             'updated_at' => new DateTime(),
-            'auth_send_user' => 2,
-            'user_id' => 1
+            'auth_send_user' => 3,
+            'user_id' => 2
         ]);
         DB::table('posts')->insert([
             'title' => '知恵熱の出る経験',
@@ -79,6 +79,7 @@ class PostSeeder extends Seeder
             'auth_send_user' =>3,
             'user_id' => 4
         ]);
+        
         
     }
 }

@@ -51,7 +51,9 @@ class PostController extends Controller
         $input += ['auth_send_user' => \Auth::user()->id];  //追加
         $post->fill($input)->save();
         
+        
         $input += ['post_id' => $post->id];  //追加
+        $input['receive_user'] = $input['user_id'];
         $input['user_id'] = \Auth::user()->id ;
         $receiver->fill($input)->save();
         return redirect('/posts/' . $post->id);

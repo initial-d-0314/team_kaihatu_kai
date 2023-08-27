@@ -21,6 +21,8 @@ return new class extends Migration
             $table->date('date');
             $table->timestamps();
             $table->foreignId('post_id')->constrained();
+            //誰に送ったかの情報
+            $table->bigInteger('receive_user');
             //送ってきた相手のid
             $table->foreignId('user_id')->constrained();
         });
